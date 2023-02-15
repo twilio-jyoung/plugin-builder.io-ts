@@ -64,6 +64,16 @@ Setup
 - execute the following commands
 
 ```bash
+cp public/appConfig.example.js public/appConfig.js
+```
+
+```bash
+cp .env.sample .env
+```
+
+- add your API key to [builder.io] in your .env file which can be found on the [Get started](https://builder.io/app/get-started) page or your [Account Settings](https://builder.io/account)
+
+```bash
 npm install
 ```
 
@@ -76,7 +86,7 @@ twilio flex:plugins:start
 ```
 
 - Navigate to the [builder.io content](https://builder.io/content) page
-- Click the `new` button, and select that you want to build a new Panel 2 content item
+- Click the `Create Your First Entry` button, and select that you want to build a new Panel 2 content item
 - If everything worked correctly you should see an `+ Add Block` button on the right that you can use to add page content. You can use components from [builder.io], but also check out the `Custom Components` section which allows you to insert a subset of components from the [Paste Library](https://paste.twilio.design/) which will match in theme and style with the rest of the Flex UI.
 - For any additional details on how to build with builder.io, check out the getting started guide on the [builder.io docs](https://www.builder.io/c/docs/learning)
 
@@ -250,16 +260,36 @@ context.invokeAction("StartOutboundCall", {
 });
 ```
 
-<mark>please note: flex does not allow you to have multiple open windows when making an outbound call. you'll need to publish your changes and then navigate away from the builder section model preview page before you test this functionality.</mark>
+<mark>please note: flex does not allow you to have multiple open windows when making an outbound call. you'll need to publish your changes and then navigate away from the builder content entry preview page before you test this functionality.</mark>
 
 ### Register a custom component
 
-You can register custom components with [builder.io] using a single line of code.
+If you have already built a component...
+
+`components/Greeting.jsx`
 
 ```jsx
-Builder.registerComponent(MyComponent, {
-	name: "My Component",
-});
+import React from "react";
+import { Builder } from "@builder.io/react";
+
+export const Greeting = () => (
+	const greeting = 'Hello Function Component!';
+	return <h1>{greeting}</h1>;
+);
+```
+
+then you can register it with [builder.io] using a single line of code.
+
+`utils/builderio-component-factory.js`
+
+```jsx
+import React from "react";
+import { Builder } from "@builder.io/react";
+import { Greeting } from "../components/Greeting";
+
+export default function createBuilderIOComponents() {
+	Builder.registerComponent(Greeting, { name: "My Greeting Component" });
+}
 ```
 
 ### Custom Component Configuration

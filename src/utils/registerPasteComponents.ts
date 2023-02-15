@@ -6,6 +6,7 @@ import { AvatarComponent } from "../components/paste/Avatar";
 import { BadgeComponent } from "../components/paste/Badge";
 import { ButtonComponent } from "../components/paste/Button";
 import { CardComponent } from "../components/paste/Card";
+import { HeadingComponent } from "../components/paste/Heading";
 import { IconComponent } from "../components/paste/Icon";
 import { ParagraphComponent } from "../components/paste/Paragraph";
 import { TabsComponent } from "../components/paste/Tabs";
@@ -33,6 +34,7 @@ export default function registerPasteComponents(): void {
 		BadgeComponent,
 		ButtonComponent,
 		CardComponent,
+		HeadingComponent,
 		IconComponent,
 		ParagraphComponent,
 		TabsComponent,
