@@ -48,7 +48,7 @@ export type CleanWorker = Omit<Partial<Worker>, "activity"> & {
 };
 
 export function cleanWorkerObject(
-	worker: Worker | undefined
+	worker?: Worker
 ): Partial<CleanWorker> | undefined {
 	if (worker) {
 		let result: CleanWorker = {

@@ -7,6 +7,7 @@ import {
 	withTheme,
 	withTaskContext,
 } from "@twilio/flex-ui";
+
 import { BuilderComponent, builder } from "@builder.io/react";
 import {
 	cleanTaskObject,
@@ -18,7 +19,7 @@ const SECTION_MODEL_NAME = "panel-2";
 
 export interface ContextProps {
 	tasks?: Map<string, ITask>;
-	task?: ITask | undefined;
+	task?: ITask;
 	theme?: Theme;
 	selectedTaskSid?: string;
 }
@@ -30,6 +31,7 @@ const Section = (props: ContextProps) => {
 	const manager = Manager.getInstance();
 	let workerClient = manager.workerClient;
 
+	//#region effect hooks
 	useEffect(() => {
 		try {
 			builder
@@ -41,7 +43,7 @@ const Section = (props: ContextProps) => {
 						// set attributes used for targetting here
 						worker: workerClient?.name,
 
-						// add additional properties like team name, worker attributes,
+						// add additional properties like team name, role, division,
 						// IVR intent, etc... as needed to render the right content
 					},
 				})
@@ -52,7 +54,6 @@ const Section = (props: ContextProps) => {
 		}
 	}, []);
 
-	//#region effect hooks and listeners
 	useEffect(() => {
 		workerClient?.on("activityUpdated", (worker) => {
 			setWorker(cleanWorkerObject(worker));
