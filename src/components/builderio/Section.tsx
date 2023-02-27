@@ -33,6 +33,14 @@ const Section = (props: ContextProps) => {
 
 	//#region effect hooks
 	useEffect(() => {
+		workerClient?.on("activityUpdated", (worker) => {
+			setWorker(cleanWorkerObject(worker));
+		});
+
+		setWorker(cleanWorkerObject(workerClient));
+	}, []);
+
+	useEffect(() => {
 		try {
 			builder
 				.get(SECTION_MODEL_NAME, {
@@ -52,14 +60,6 @@ const Section = (props: ContextProps) => {
 		} catch (error) {
 			console.log(error);
 		}
-	}, []);
-
-	useEffect(() => {
-		workerClient?.on("activityUpdated", (worker) => {
-			setWorker(cleanWorkerObject(worker));
-		});
-
-		setWorker(cleanWorkerObject(workerClient));
 	}, []);
 	//#endregion
 

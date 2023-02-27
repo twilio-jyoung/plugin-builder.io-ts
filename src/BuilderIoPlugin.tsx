@@ -3,7 +3,7 @@ import * as Flex from "@twilio/flex-ui";
 import { FlexPlugin } from "@twilio/flex-plugin";
 import Section from "./components/builderio/Section";
 import builder from "@builder.io/react";
-import registerPasteComponents from "./utils/registerPasteComponents";
+import registerComponentsWithBuilderIO from "./utils/registerComponentsWithBuilderIO";
 
 import {
 	CustomizationProvider,
@@ -54,7 +54,7 @@ export default class BuilderIoPlugin extends FlexPlugin {
 		// });
 
 		// loads useful paste components to be used in Panel2
-		registerPasteComponents();
+		registerComponentsWithBuilderIO();
 
 		flex.AgentDesktopView.Panel2.Content.replace(<Section key="myComp" />);
 	}

@@ -11,6 +11,7 @@ import { IconComponent } from "../components/paste/Icon";
 import { ParagraphComponent } from "../components/paste/Paragraph";
 import { TabsComponent } from "../components/paste/Tabs";
 import { TextComponent } from "../components/paste/Text";
+import { PolarAreaApexChartComponent } from "../components/sample/ApexChart";
 
 function registerListOfComponents(
 	customComponents: CustomBuilderIOComponent[]
@@ -26,8 +27,9 @@ function registerListOfComponents(
 	});
 }
 
-export default function registerPasteComponents(): void {
+export default function registerComponentsWithBuilderIO(): void {
 	const components: CustomBuilderIOComponent[] = [
+		// paste components
 		AlertComponent,
 		AnchorComponent,
 		AvatarComponent,
@@ -39,6 +41,9 @@ export default function registerPasteComponents(): void {
 		ParagraphComponent,
 		TabsComponent,
 		TextComponent,
+
+		// custom components
+		PolarAreaApexChartComponent,
 	];
 
 	registerListOfComponents(components);
