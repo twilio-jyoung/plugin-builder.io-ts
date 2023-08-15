@@ -78,7 +78,7 @@ npm install
 ```
 
 ```bash
-npm install @twilio-paste/core@latest @twilio-paste/icons@latest --legacy-peer-deps
+npm install @twilio-paste/core@17.7.0 @twilio-paste/icons@9.4.3 --legacy-peer-deps
 ```
 
 ```bash
