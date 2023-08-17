@@ -51,6 +51,8 @@ const Section = (props: ContextProps) => {
 						// set attributes used for targetting here
 						worker: workerClient?.name,
 
+						demo: "se-poc",
+
 						// add additional properties like team name, role, division,
 						// IVR intent, etc... as needed to render the right content
 					},

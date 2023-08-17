@@ -12,6 +12,8 @@ import { ParagraphComponent } from "../components/paste/Paragraph";
 import { TabsComponent } from "../components/paste/Tabs";
 import { TextComponent } from "../components/paste/Text";
 import { PolarAreaApexChartComponent } from "../components/sample/ApexChart";
+import { ChromeDinoGameComponent } from "../components/sample/ChromeDinoGame";
+import { CustomerCardComponent } from "../components/sample/CustomerCard";
 
 function registerListOfComponents(
 	customComponents: CustomBuilderIOComponent[]
@@ -44,7 +46,34 @@ export default function registerComponentsWithBuilderIO(): void {
 
 		// custom components
 		PolarAreaApexChartComponent,
+		ChromeDinoGameComponent,
+		CustomerCardComponent,
 	];
 
 	registerListOfComponents(components);
+
+	Builder.register('editor.settings', { customInsertMenu: false });
+
+	Builder.register('insertMenu', {
+	  name: 'Twilio Paste Text Display Components',
+	  items: [
+		{ name: 'Paste Text' },
+		{ name: 'Paste Heading' },
+		{ name: 'Paste Paragraph' },
+		{ name: 'Paste Anchor' },
+		{ name: 'Paste Alert' },
+		{ name: 'Paste Badge' },
+	  ],
+	});
+  
+	Builder.register('insertMenu', {
+	  name: 'Twilio Paste Visual Elements',
+	  items: [
+		{ name: 'Paste Avatar' },
+		{ name: 'Paste Button' },
+		{ name: 'Paste Card' },
+		{ name: 'Paste Icon' },
+		{ name: 'Paste Tabs' },
+	  ],
+	});
 }
